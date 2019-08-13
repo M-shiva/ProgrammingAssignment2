@@ -9,6 +9,7 @@ inv <- NULL
 set = function(y) {
         ## use "<<-" to assign a value to an object in an environment different fromt the current environment
         x <<- y       
+        ## test
         inv <<- NULL      
 }
 get = function() x
@@ -41,4 +42,5 @@ cacheSolve <- function(x, ...) {
         x$setinv(inv)
         
         return(inv)
+        ## Function completed
 }
