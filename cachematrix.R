@@ -9,7 +9,6 @@ inv <- NULL
 set = function(y) {
         ## use "<<-" to assign a value to an object in an environment different fromt the current environment
         x <<- y       
-        ## test
         inv <<- NULL      
 }
 get = function() x
@@ -27,14 +26,14 @@ list(set=set, get=get, setinv=setinv, getinv=getinv)
 cacheSolve <- function(x, ...) {
         inv = x$getinv()
         
-        # if the inverse has already been calculated
+        # Check if the inverse has been calculated
         if (!is.null(inv)){
-                # get it from the cache and skips the computation. 
+                #retrive from the cache and exit
                 message("getting cached data")
                 return(inv)
         }
         
-        # otherwise, calculates the inverse 
+        # else, calculate the inverse 
         mat.data = x$get()
         inv = solve(mat.data, ...)
         
